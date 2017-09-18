@@ -1,0 +1,8 @@
+<%= @user.username %>, <%= @user.email %>
+
+<% if logged_in? %>
+	<p><%= link_to "Log out", logout_path, method: :delete %> </p>
+<% else %>
+	<p><%= link_to "Log in", login_path %> </p>
+<% end %>
+	

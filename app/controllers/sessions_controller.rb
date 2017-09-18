@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   	user = User.find_by(username: params[:session][:username].downcase)
   	if user && user.authenticate(params[:session][:password])
   		log_in user
-  		redirect_to ('/')
+      flash[:success] = "Succesfully logged in."
+  		redirect_to user
   	else
   		flash.now[:danger] = 'Invalid username/password combination'
  		render 'new' 	
@@ -14,5 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out 
+    redirect_to root_url
   end
 end
