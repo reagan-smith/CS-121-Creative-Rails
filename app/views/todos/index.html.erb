@@ -1,0 +1,22 @@
+<h1>Todo</h1>
+<%= link_to 'New Todo', new_todo_path %>
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Details</th>
+  </tr>
+
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= check_box_tag(:title) %></td>
+      <td><%= todo.title %></td>
+      <td><%= todo.text %></td>
+      <td><%= link_to 'Show', todo_path(todo) %></td>
+      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+      <td><%= link_to 'Destroy', todo_path(todo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
