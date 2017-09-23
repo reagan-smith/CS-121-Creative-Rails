@@ -14,6 +14,7 @@ gem 'sqlite3'
 gem 'railties', '>= 5.1.4'
 gem 'bootstrap-sass', '>= 3.3.5'
 gem 'sass-rails', '>= 3.2'
+gem 'jquery-rails'
 
 gem 'simple_form', '~> 3.2'
 
