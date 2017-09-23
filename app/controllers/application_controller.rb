@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def mainPage
-  	render html: "welcome to our site!"
+  	render html: "wAAAAAAAAAAte!"
   end
 end
