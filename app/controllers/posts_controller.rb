@@ -10,8 +10,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new
-		if @post.save(post_params)
+		@post = Post.new(post_params)
+		if @post.save
 			flash[:notice] = "Succesfully created post!"
 			redirect_to post_path(@post)
 		else
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		if @post.desstroy
+		if @post.destroy
 			flash[:notice] = "Succesfully deleted post!"
 			redirect_to posts_path
 		else
