@@ -1,20 +1,40 @@
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+}
+
+</style>
+</head>
 <h1>Todo</h1>
 <%= link_to 'New Todo', new_todo_path %>
 <table>
+
   <tr>
     <th></th>
     <th>Title</th>
     <th>Details</th>
+    <th>Actions</th>
   </tr>
 
   <% @todos.each do |todo| %>
     <tr>
-      <td><%= check_box_tag(:title) %></td>
+      <td></td>
       <td><%= todo.title %></td>
       <td><%= todo.text %></td>
-      <td><%= link_to 'Show', todo_path(todo) %></td>
-      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-      <td><%= link_to 'Destroy', todo_path(todo),
+      <td><%= link_to 'Show   ', todo_path(todo) %></td>
+      <td><%= link_to 'Edit    ', edit_todo_path(todo) %></td>
+      <td><%= link_to 'Mark as complete', todo_path(todo),
+              method: :delete,
+              data: { confirm: 'This will remove the task from the todo index, are you sure?' } %></td>
+      <td><%= link_to 'Delete', todo_path(todo),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

@@ -10,14 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170924210013) do
 
-ActiveRecord::Schema.define(version: 20170919192323) do
+  create_table "Users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+  # 
+  # create_table "task_trackers", force: :cascade do |t|
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  # end
+
+  # create_table "tasks", force: :cascade do |t|
+  #   t.string "title"
+  #   t.text "text"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  # end
 
   create_table "todos", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  # create_table "trackers", force: :cascade do |t|
+  #   t.string "title"
+  #   t.text "text"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
   end
 
 end
