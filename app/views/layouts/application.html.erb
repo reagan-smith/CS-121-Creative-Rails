@@ -24,7 +24,7 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav">
 	                  <li>
-                      <%= link_to '<i class="glyphicon glyphicon-asterisk">About</i>'.html_safe, root_path %>
+                      <%= link_to '<i class="glyphicon glyphicon-asterisk">About</i>'.html_safe, about_path %>
                     </li>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tasks
@@ -40,17 +40,17 @@
                     </li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <%- if current_user %>
+                    <%- if logged_in? %>
                       <!-- TODO: Logout link is broken for some reason..? -->
                       <li>
-                        <%= link_to '<i class="glyphicon glyphicon-log-out"> Logout</i>'.html_safe, logout_path %>
+                        <%= link_to '<i class="glyphicon glyphicon-log-out"> Logout</i>'.html_safe, logout_path, method: :delete %>
                       </li>
                     <% else %>
                       <li>
                         <%= link_to '<i class="glyphicon glyphicon-log-in"> Login</i>'.html_safe, login_path %>
                       </li>
                       <li>
-                        <%= link_to '<i class="glyphicon glyphicon-user"> Register</i>', signup_path %>
+                        <%= link_to '<i class="glyphicon glyphicon-user"> Register</i>'.html_safe, signup_path %>
                       </li>
                     <% end %>
 	                </ul>
