@@ -38,10 +38,23 @@
                         </li>
                       </ul>
                     </li>
+                    <%- if logged_in? %>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">About
+                        <span class="caret"></span></a>
+                        <ul class ="dropdown-menu">
+                          <li>
+                            <%= link_to '<i class="glyphicon glyphicon-th-large">  See Posts</i>'.html_safe, posts_path %>
+                          </li>
+                          <li>
+                            <%= link_to '<i class="glyphicon glyphicon-plus">  New Post</i>'.html_safe, new_post_path %>
+                          </li>
+                        </ul>
+                      </li>
+                    <% end %>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     <%- if logged_in? %>
-                      <!-- TODO: Logout link is broken for some reason..? -->
                       <li>
                         <%= link_to '<i class="glyphicon glyphicon-log-out"> Logout</i>'.html_safe, logout_path, method: :delete %>
                       </li>
