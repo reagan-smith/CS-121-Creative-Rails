@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :show, :delete]
 
 	def index
-		@posts = Post.all
+		@posts = Post.all.order("updated_at DESC")
 	end
 
 	def new
@@ -21,12 +21,14 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@post = Post.find(params[:id])
 	end
 
 	def update
+		@post = Post.find(params[:id])
 		if @post.update_attributes(post_params)
-			flash[:notice] = "Succesfully updated"
-			redirect_to post_path(@posts)
+			flash[:notice] = "Succesfully updated!"
+			redirect_to about_path
 		else
 			flash[:alert] = "Error updating post"
 			render :edit
@@ -37,11 +39,12 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@post = Post.find(params[:id])
 		if @post.destroy
 			flash[:notice] = "Succesfully deleted post!"
 			redirect_to posts_path
 		else
-			flash[:alert] = "Error updating post!"
+			flash[:alert] = "Error updating post"
 		end
 	end
 
