@@ -20,7 +20,7 @@ This web app can help. With our website, you can easily store a todo list. You c
 Think of a component as a part of the system that contributes to the system's functionality. For example, user data input is a functionality that is accomplished using components such as data collection interface and database storage. Describe what technology you used for each.
 
 Our web app is built using Ruby on Rails. We used Ruby gems to help support our development. ckeditor was used to help with post creation, and bcrypt was used for password storage.
-We used bootstrap for the formatting. **FINISH LATER :D**
+We used bootstrap for the formatting. 
 * User Accounts:
 User accounts are stored based on username, and include an email field as well. All usernames must be unique, and emails are checked to ensure that they are in a valid format. While user sign up and log in do not accomplish much on their own, they interface with various different pieces of the site. For example, posts can only be added by logged-in users.
 
@@ -36,6 +36,8 @@ For the todos, there was a lot of struggle on how to archive them or check of co
 
 Another struggle was trying to put the site up on Heroku, which was not part of our MVP but was a stretch goal. Heroku doesn't allow sqlite, which is what our databases were originally based on, so all of the databases would have to be migrated to PostGreSQL. While this seemed easy enough, several small bugs arose throughout development that were almost impossible to track down, due to a combination of our unfamiliarity with postgreSQL and also the struggles with using Heroku. Ultimately, we had to abandon this stretch goal.
 
+Lastly, we dealt with a problem regarding the bootstrap implementation. The original download of the program didn't successfully place all the files where the program expected them to be located. I attempted to resolve this by googling the error messages and reading up on general Bootstrap/Ruby on Rails integration. However, I couldn't find the issue until discussing the bug with Prof Kate and asking for advice about hunting it down. After she discovered it, I was able to then fix the problem and successfully load bootstrap onto our app.
+
 ## Discuss major issues still present (e.g., "Known bugs"): what the problem is, what options have been tried or considered, and how those options might fall short.
 
 As mentioned above, the marking tasks complete is still a bug for todos. We tried making a new controller/model to copy informaiton from todos over onto a new page of completed tasks and we tried making check boxes persistent when clicked. The checkboxes were far too complicated for their simple look in the site to justify keeping. We still think the new controller/model to be a viable option when moving forward on making the todo page more realistic.
@@ -45,4 +47,6 @@ As mentioned above, the marking tasks complete is still a bug for todos. We trie
 The todos were modeled after [this](http://guides.rubyonrails.org/getting_started.html) site and we got the information on how to do checkboxes (later abandoned) [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox).
 
 Blog posts were based on [this tutorial](https://scotch.io/tutorials/build-a-blog-with-ruby-on-rails-part-1), and user modeling and login/signup was done from [this tutorial](https://www.railstutorial.org/book/modeling_users).
+
+Bootstrap advice was found [here](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp). The glyphs in the navbar were described [here](https://getbootstrap.com/docs/3.3/components/), and the original template this was modeled off of is a combination of [this](https://startbootstrap.com/template-overviews/bare/) and the one used in [this](https://www.youtube.com/watch?v=MpFO4Zr0EPE) tutorial.
 
